@@ -18,7 +18,7 @@ from QASystem.ingestion import data_ingestion,get_vector_store
 from QASystem.retrievalandgeneration import get_llama2_llm,get_response_llm
 
 bedrock=boto3.client(service_name="bedrock-runtime")
-bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v1",client=bedrock)
+bedrock_embeddings=BedrockEmbeddings(model_id="amazon.titan-embed-text-v2:0",client=bedrock)
 
 def main():
     st.set_page_config("QA with Doc")

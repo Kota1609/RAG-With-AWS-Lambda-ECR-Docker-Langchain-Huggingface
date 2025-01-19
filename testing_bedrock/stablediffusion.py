@@ -1,48 +1,37 @@
 import boto3
 import json
-import base64
-import os
 
-prompt="""
+print("Imported successfully...")
 
-provide me one 4k hd image of person who is standing over the mount everest peak.
+# Define the prompt
+prompt = "Generate a description for a person standing on Mount Everest."
 
-"""
+# Initialize the Bedrock client
+bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
-prompt_template=[{"text":prompt,"weight":1}]
-
-bedrock=boto3.client(service_name="bedrock-runtime")
-
-payload={
-    "text_prompts":prompt_template,
-    "cfg_scale":10,
-    "seed":0,
-    "steps":50,
-    "width":512,
-    "height":512
-    
+# Prepare the payload
+payload = {
+    "prompt": prompt,
+    "max_gen_len": 512,
+    "temperature": 0.7,
+    "top_p": 0.9,
 }
-body=json.dumps(payload)
-model_id="stability.stable-diffusion-xl-v0"
 
-response=bedrock.invoke_model(
+# Serialize payload to JSON
+body = json.dumps(payload)
+
+# Use the inference profile ARN for Llama 3.2 11B Vision Instruct
+inference_profile_arn = "arn:aws:bedrock:us-east-2:241533121157:inference-profile/us.meta.llama3-2-11b-instruct-v1:0"
+
+# Invoke the model
+response = bedrock.invoke_model(
     body=body,
-    modelId=model_id,
+    modelId=inference_profile_arn,
     accept="application/json",
     contentType="application/json"
-    
 )
 
-response_body=json.loads(response.get("body").read())
-print(response_body)
-
-artifacts=response_body.get("artifacts")[0]
-image_encoded=artifacts.get("base64").encode('utf-8')
-image_bytes=base64.b64decode(image_encoded)
-
-
-output_dir="output"
-os.makedirs(output_dir,exist_ok=True)
-file_name=f"{output_dir}/generated-img.png"
-with open(file_name,"wb") as f:
-    f.write(image_bytes)
+# Parse and print the response
+response_body = json.loads(response['body'].read())
+response_text = response_body.get("generation", "No response generated.")
+print(response_text)

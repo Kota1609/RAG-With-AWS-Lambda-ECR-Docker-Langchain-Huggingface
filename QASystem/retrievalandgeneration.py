@@ -31,7 +31,8 @@ PROMPT=PromptTemplate(
 
 
 def get_llama2_llm():
-    llm=Bedrock(model_id="meta.llama2-13b-chat-v1",client=bedrock)
+    inference_profile_arn = "arn:aws:bedrock:us-east-2:241533121157:inference-profile/us.meta.llama3-2-11b-instruct-v1:0"
+    llm=Bedrock(model_id=inference_profile_arn,client=bedrock)
     
     return llm
 
