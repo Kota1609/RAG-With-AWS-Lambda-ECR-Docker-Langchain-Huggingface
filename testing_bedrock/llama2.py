@@ -10,7 +10,7 @@ prompt = """
 """
 
 # Initialize the Bedrock client
-bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-2")
+bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
 # Prepare the payload
 payload = {

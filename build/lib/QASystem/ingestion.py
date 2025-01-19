@@ -24,9 +24,9 @@ def data_ingestion():
     if not docs:
         raise ValueError("Text splitting returned no chunks. Check the text_splitter configuration.")
     
-    print(f"Split into {len(docs)} chunks:")
+    print(f"Split into {len(docs)} chunks.")
     for i, doc in enumerate(docs):
-        print(f"Chunk {i + 1}: {repr(doc.page_content[:100])}...")
+        print(f"Chunk {i + 1}: {doc.page_content[:100]}...")
     return docs
 
 def get_vector_store(docs):
@@ -34,13 +34,12 @@ def get_vector_store(docs):
     valid_embeddings = []
     
     for i, doc in enumerate(docs):
-        if not doc.page_content.strip():  # Skip empty chunks
+        if not doc.page_content.strip():
             print(f"Skipping empty or whitespace-only chunk {i + 1}.")
             continue
         try:
-            print(f"Generating embedding for chunk {i + 1}: {repr(doc.page_content[:50])}...")
+            print(f"Generating embedding for chunk {i + 1}: {doc.page_content[:50]}...")
             embedding = bedrock_embeddings.embed_text(doc.page_content)
-            print(f"Generated embedding for chunk {i + 1}: {embedding}")
             valid_docs.append(doc)
             valid_embeddings.append(embedding)
         except Exception as e:
