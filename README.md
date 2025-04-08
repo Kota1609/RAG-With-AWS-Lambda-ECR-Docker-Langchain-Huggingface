@@ -1,3 +1,5 @@
 # Deploying RAG APPLICATION using AWS(AWS lambda,AWS ECR), Langchain, Huggingface, Docker
 
-[![Watch the video](https://via.placeholder.com/480x270.png?text=Click+to+Watch)](https://drive.google.com/file/d/1szUahk6_qanIkxIwhZCyyjiC4Fg5CFVc/view?usp=drive_link)
+Video:
+
+[Watch Video](https://github.com/user-attachments/assets/07a63f0b-7b12-4bca-88d7-7ebbdb5f2f70)
