@@ -38,85 +38,6 @@ The system is built using a modern tech stack:
 - **LLM Integration**: Ollama for accessing language models
 - **Web Interface**: Chainlit for the user interface
 
-## 📁 Project Structure
-
-```
-.
-├── 🐳 Dockerfile              # Container definition for the main application
-├── 🐳 Dockerfile.vllm         # Container definition for the vLLM server
-├── 📄 requirements.txt        # Python dependencies
-├── 🛠 run_podman.sh           # Script to build and run the application with Podman
-└── 📂 src/
-    ├── 🚀 app.py              # Main application entry point
-    ├── 🤖 agents/
-    │   ├── 🔧 base_agent.py   # Base agent class with common functionality
-    │   ├── 📌 registry.py     # Agent registry and classification
-    │   └── 🎯 specialized_agents.py  # Specialized agent implementations
-    ├── ⚙️ config/
-    │   ├── 📝 prompts.py      # Agent prompts and templates
-    │   └── 🔧 settings.py     # Application settings and configuration
-    └── 📂 models/
-        ├── 📊 classification.py  # Query classification system
-        └── ✅ query_models.py    # Pydantic models for query validation
-```
-
-## 🛠 Prerequisites
-
-- 🐍 Python 3.10+
-- 🛢 Podman
-- 🍺 Homebrew (for Linux)
-- 🎮 CUDA-capable GPU (for vLLM server)
-
-## 📥 Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
-
-2. Install Podman using Homebrew:
-
-   ```bash
-   brew install podman
-   ```
-
-3. Initialize Podman (if needed):
-   ```bash
-   podman machine init
-   podman machine start
-   ```
-
-## ▶️ Running the Application
-
-1. Make the run script executable:
-
-   ```bash
-   chmod +x run_podman.sh
-   ```
-
-2. Run the application:
-
-   ```bash
-   ./run_podman.sh
-   ```
-
-3. Access the application at `http://localhost:8000`
-
-## 🔧 Environment Variables
-
-The application uses the following environment variables:
-
-- 🏷 `MODEL_ID`: The model ID to use (default: "google/gemma-3-27b-it")
-- 🌐 `INFERENCE_SERVER_URL`: URL of the vLLM server (default: "http://vllm-server:5000/v1")
-- 🔄 `MAX_RETRIES`: Maximum number of retries for API calls (default: 3)
-- ⏳ `RETRY_DELAY`: Delay between retries in seconds (default: 2)
-- ⏱ `REQUEST_TIMEOUT`: Timeout for API requests in seconds (default: 30)
-- 🌍 `CHAINLIT_HOST`: Host for the Chainlit server (default: "0.0.0.0")
-- 📡 `CHAINLIT_PORT`: Port for the Chainlit server (default: 8000)
-- 📜 `LOG_LEVEL`: Logging level (default: "INFO")
-
 ## 🤖 Agent Capabilities
 
 ### 📧 Email Composition Agent
@@ -152,9 +73,31 @@ To modify or extend the system:
 3. Adjust the classification system in `src/models/classification.py`
 4. Update the Pydantic models in `src/models/query_models.py`
 
-## 📜 License
+## 📦 Installation
 
-[MIT License]
+```bash
+# Clone the repository
+git clone [repository-url]
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Run the application
+docker-compose up
+```
+
+## 🔧 Configuration
+
+The system requires the following environment variables:
+
+- `REDIS_URL`: Redis connection string
+- `OLLAMA_API_URL`: Ollama API endpoint
+- `CHROMA_DB_PATH`: Path to ChromaDB storage
+- `MODEL_NAME`: Name of the LLM model to use
 
 ## 📞 Support
 
