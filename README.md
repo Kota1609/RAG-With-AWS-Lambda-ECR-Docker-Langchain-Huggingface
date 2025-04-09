@@ -99,21 +99,10 @@ The system requires the following environment variables:
 - `CHROMA_DB_PATH`: Path to ChromaDB storage
 - `MODEL_NAME`: Name of the LLM model to use
 
-## 📚 Documentation
-
-For detailed documentation, please refer to:
-- [Agent Implementation Guide](docs/agents.md)
-- [System Architecture](docs/architecture.md)
-- [API Documentation](docs/api.md)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 📞 Support
 
-For support, please contact [support-email] or open an issue in the repository.
+For support, please contact [Srichandan Kota](https://srichandan-kota.vercel.app/) or open an issue in the repository.
+
+---
+
+Made with ❤️ for UNT by [Srichandan Kota](https://srichandan-kota.vercel.app/)
