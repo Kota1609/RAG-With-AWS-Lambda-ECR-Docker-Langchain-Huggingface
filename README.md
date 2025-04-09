@@ -2,6 +2,10 @@
 
 A sophisticated multi-agent system for the University of North Texas (UNT) that provides specialized assistance for various academic tasks using the 🧠 Gemma 3 27B model.
 
+## 📺 Video Demonstration
+
+[Watch Video](https://github.com/user-attachments/assets/07a63f0b-7b12-4bca-88d7-7ebbdb5f2f70)
+
 ## 📌 Overview
 
 This project implements a multi-agent system with specialized agents for different academic tasks:
@@ -22,6 +26,17 @@ The system uses a sophisticated classification mechanism to determine which agen
 - 🛠 **Pydantic Models**: Input validation and structured data handling
 - 💻 **Chainlit Interface**: Modern web UI for interacting with the agents
 - ⚡ **vLLM Integration**: Efficient inference using the Gemma 3 27B model
+
+## 🏗️ Architecture
+
+The system is built using a modern tech stack:
+
+- **Web Scraping**: Automated collection of UNT website data
+- **Vector Database**: ChromaDB for efficient document storage and retrieval
+- **Containerization**: Docker for consistent deployment
+- **Session Management**: Redis for managing user sessions
+- **LLM Integration**: Ollama for accessing language models
+- **Web Interface**: Chainlit for the user interface
 
 ## 📁 Project Structure
 
@@ -105,34 +120,30 @@ The application uses the following environment variables:
 ## 🤖 Agent Capabilities
 
 ### 📧 Email Composition Agent
-
 - Drafts professional academic emails
 - Follows proper email structure and formatting
 - Maintains appropriate tone and style
 - Handles common scenarios like extension requests and meeting scheduling
 
 ### 📑 Research Paper Agent
-
 - Helps with research paper planning and structure
 - Provides guidance on research methodology
 - Ensures proper academic writing standards
 - Supports various citation styles and formats
 
 ### 📚 Academic Concepts Agent
-
 - Explains academic concepts and theories
 - Adapts explanations to different difficulty levels
 - Provides learning support and resources
 - Covers various subject areas
 
 ### 🔗 Redirect Agent
-
 - Directs users to relevant UNT resources
 - Provides detailed information about available services
 - Includes direct links to resources
 - Offers contact information and usage guidelines
 
-## 🏗 Development
+## 🛠️ Development
 
 To modify or extend the system:
 
@@ -145,6 +156,10 @@ To modify or extend the system:
 
 [MIT License]
 
-## 📞 Contact
+## 📞 Support
 
-[abinesha312@gmail.com](mailto:abinesha312@gmail.com)
+For support, please contact [Srichandan Kota](https://srichandan-kota.vercel.app/) or open an issue in the repository.
+
+---
+
+Made with ❤️ for UNT by [Srichandan Kota](https://srichandan-kota.vercel.app/)
